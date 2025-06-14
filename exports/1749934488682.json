@@ -1,0 +1,15 @@
+{
+  "timestamp": 1749934488682,
+  "operation": {
+    "id": "db:postgres"
+  },
+  "projectId": "personal-website",
+  "files": [
+    {
+      "path": "../../apps/personal-website/backend/db.sql",
+      "type": "text",
+      "size": 4390,
+      "dependencies": false
+    }
+  ]
+}

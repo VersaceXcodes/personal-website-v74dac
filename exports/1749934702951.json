@@ -1,0 +1,15 @@
+{
+  "timestamp": 1749934702951,
+  "operation": {
+    "id": "settings:config:package"
+  },
+  "projectId": "personal-website",
+  "files": [
+    {
+      "path": "../../apps/personal-website/vitereact/package.json",
+      "type": "text",
+      "size": 2969,
+      "dependencies": true
+    }
+  ]
+}

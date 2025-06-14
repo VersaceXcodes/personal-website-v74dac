@@ -1,0 +1,15 @@
+{
+  "timestamp": 1749934513494,
+  "operation": {
+    "id": "backend:specifications:asyncapi"
+  },
+  "projectId": "personal-website",
+  "files": [
+    {
+      "path": "../../apps/personal-website/backend/asyncapi.yaml",
+      "type": "text",
+      "size": 3,
+      "dependencies": false
+    }
+  ]
+}

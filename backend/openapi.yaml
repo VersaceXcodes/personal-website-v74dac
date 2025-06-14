@@ -1,0 +1,263 @@
+openapi: 3.0.0
+info:
+  title: Personal-Website API
+  description: API for managing the Personal-Website project, allowing users to
+    create and customize their own websites.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Development server
+paths:
+  /api/auth/login:
+    post:
+      summary: Log in to user account
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+      responses:
+        "200":
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResponse"
+  /api/templates:
+    get:
+      summary: Retrieve available templates
+      operationId: getTemplates
+      responses:
+        "200":
+          description: A list of templates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  templates:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Template"
+  /api/sites:
+    post:
+      summary: Create a new site
+      operationId: createSite
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SiteCreateRequest"
+      responses:
+        "201":
+          description: Site successfully created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SiteCreateResponse"
+  /api/sites/{site_id}/pages/{page_id}:
+    put:
+      summary: Update page content
+      operationId: updatePageContent
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PageUpdateRequest"
+      responses:
+        "200":
+          description: Page successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateResponse"
+  /api/posts/{post_id}/comments:
+    post:
+      summary: Submit a comment on a blog post
+      operationId: addComment
+      parameters:
+        - name: post_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CommentRequest"
+      responses:
+        "201":
+          description: Comment successfully created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CommentResponse"
+  /api/sites/{site_id}/contact:
+    post:
+      summary: Submit a contact form
+      operationId: submitContactForm
+      parameters:
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactFormRequest"
+      responses:
+        "201":
+          description: Submission successful
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactFormResponse"
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      required:
+        - username
+        - password
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        user_id:
+          type: string
+      required:
+        - token
+        - user_id
+    Template:
+      type: object
+      properties:
+        template_id:
+          type: string
+        name:
+          type: string
+        category:
+          type: string
+        preview_url:
+          type: string
+      required:
+        - template_id
+        - name
+        - category
+        - preview_url
+    SiteCreateRequest:
+      type: object
+      properties:
+        template_id:
+          type: string
+        domain_name:
+          type: string
+        color_scheme:
+          type: string
+        fonts:
+          type: string
+      required:
+        - template_id
+    SiteCreateResponse:
+      type: object
+      properties:
+        site_id:
+          type: string
+      required:
+        - site_id
+    PageUpdateRequest:
+      type: object
+      properties:
+        content:
+          type: object
+        seo_meta:
+          type: object
+      required:
+        - content
+    UpdateResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+      required:
+        - success
+        - message
+    CommentRequest:
+      type: object
+      properties:
+        author_name:
+          type: string
+        author_email:
+          type: string
+        content:
+          type: string
+      required:
+        - author_name
+        - author_email
+        - content
+    CommentResponse:
+      type: object
+      properties:
+        comment_id:
+          type: string
+      required:
+        - comment_id
+    ContactFormRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        message:
+          type: string
+      required:
+        - name
+        - email
+        - message
+    ContactFormResponse:
+      type: object
+      properties:
+        submission_id:
+          type: string
+        success:
+          type: boolean
+      required:
+        - submission_id
+        - success

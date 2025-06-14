@@ -1,0 +1,21 @@
+{
+  "timestamp": 1749934558710,
+  "operation": {
+    "id": "settings:config:package"
+  },
+  "projectId": "personal-website",
+  "files": [
+    {
+      "path": "../../apps/personal-website/backend/package.json",
+      "type": "text",
+      "size": 782,
+      "dependencies": true
+    },
+    {
+      "path": "../../apps/personal-website/backend/.env",
+      "type": "text",
+      "size": 179,
+      "dependencies": false
+    }
+  ]
+}

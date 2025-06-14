@@ -1,0 +1,19 @@
+{
+  "timestamp": 1749934715578,
+  "operation": {
+    "id": "webapp:react:views",
+    "refs": {
+      "id": "GV_TopNav",
+      "version": "latest"
+    }
+  },
+  "projectId": "personal-website",
+  "files": [
+    {
+      "path": "../../apps/personal-website/vitereact/src/components/views/GV_TopNav.tsx",
+      "type": "text",
+      "size": 2977,
+      "dependencies": false
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "timestamp": 1749934666065,
+  "operation": {
+    "id": "webapp:react:views",
+    "refs": {
+      "id": "UV_TemplateSelection",
+      "version": "1749934637336"
+    }
+  },
+  "projectId": "personal-website",
+  "files": [
+    {
+      "path": "../../apps/personal-website/vitereact/src/components/views/UV_TemplateSelection.tsx",
+      "type": "text",
+      "size": 3921,
+      "dependencies": false
+    }
+  ]
+}

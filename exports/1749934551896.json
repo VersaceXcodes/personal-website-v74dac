@@ -1,0 +1,15 @@
+{
+  "timestamp": 1749934551896,
+  "operation": {
+    "id": "backend:server:main"
+  },
+  "projectId": "personal-website",
+  "files": [
+    {
+      "path": "../../apps/personal-website/backend/server.js",
+      "type": "text",
+      "size": 5908,
+      "dependencies": false
+    }
+  ]
+}

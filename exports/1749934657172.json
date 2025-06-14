@@ -1,0 +1,19 @@
+{
+  "timestamp": 1749934657172,
+  "operation": {
+    "id": "webapp:react:views",
+    "refs": {
+      "id": "UV_Homepage",
+      "version": "1749934637333"
+    }
+  },
+  "projectId": "personal-website",
+  "files": [
+    {
+      "path": "../../apps/personal-website/vitereact/src/components/views/UV_Homepage.tsx",
+      "type": "text",
+      "size": 2732,
+      "dependencies": false
+    }
+  ]
+}
