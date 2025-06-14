@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"cd vitereact && npm i --legacy-peer-deps && npm run dev\" \"cd backend && npm i && npm run start\""
+    "dev": "concurrently \"cd vitereact && npm i --legacy-peer-deps && npm run dev\" \"cd backend && npm i && npm run start\"",
+    "build": "cd vitereact && npm i --legacy-peer-deps && npm run build",
+    "start": "cd backend && npm i && node server.js"
   },
   "author": "",
   "license": "ISC",
